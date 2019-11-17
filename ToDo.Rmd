@@ -1,0 +1,71 @@
+---
+title: "ToDo"
+author: "Przemysław Chojecki"
+date: "17 11 2019"
+output: pdf_document
+---
+
+
+## zadanie
+<img src="zadanie.png">
+![tekst](zadanie.png)
+
+## Co zostało juz zrobione?
+1. Wstępny algorytm podziału $A=L*U$\
+
+
+## Co jest do zrobienia w najblizszym czasie?
+1. Wszystkie `GEPP`($Bx=b$):\
+a) $B\in\Re^{p\times p}$\
+b) $B$-ortogolalny (`x=transpose(B)*b`)\
+c) Dla blokowego $U$\
+d) Dla blokowego $L$\ ($L_1$ jest ortogonalny)\
+
+
+## Co jest do zrobienia?
+1) Generator losowych macierzy do testowania:\
+a) Generator macierzy ortogonalnych.\
+2) Testy błędów względnych, wspolczynników stabilnosci oraz wspolczynnika poprawnosci.\
+3) Porownanie czasu dzialania algorytmu ze standardowym matlabowym $A \backslash b$\
+4) Znalezienie za pomocą generatora ciekawych macierzy(pewnie `hilb`, czy cos)\
+5) Zrozumieć, czemu po pomnożeniu na pałe za pierwszym razem nam nie wyszło.\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
