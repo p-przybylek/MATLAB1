@@ -12,12 +12,12 @@ output: pdf_document
 
 ## Co zostało juz zrobione?
 1. Wstępny algorytm podziału $A=L*U$\
+2. `GEPPp`(bez $Lx=b$)\
 
 
 ## Co jest do zrobienia w najblizszym czasie?
 1. Wszystkie `GEPP`($Bx=b$):\
-a) $B\in\Re^{p\times p}$\
-b) $B$-ortogolalny (`x=transpose(B)*b`)\
+a) $B\in\Re^{p\times p}$ (brakuje tylko rozwiazania $Lx=b$)\
 c) Dla blokowego $U$\
 d) Dla blokowego $L$\ ($L_1$ jest ortogonalny)\
 
