@@ -1,16 +1,20 @@
-function x = GEPPp(B,b)
+function X = GEPPM(B,M)
 %GEPPp Przyjmuje macierz B[p na p] bez dodatkowcy zalozen
-%   i kolumne b dlugosci p.
-%Stosujac metode GEPP wyznacza taki x, ze Bx=b
+%   i macierz M[p na p].
+%Stosujac metode GEPP wyznacza macierz X, ze B*X=M
 
 [m, p] = size(B);
 if(m ~=p)
     disp("Podana macierz B nie jest kwadratowa!")
     throw(exception)
 end
-m = length(b);
-if(m ~=p)
-    disp("Podany wektor b nie jest tego samego wymiaru, co macierz B!")
+[n, p] = size(M);
+if(n ~=p)
+    disp("Podana macierz M nie jest kwadratowa!")
+    throw(exception)
+end
+if(m ~=n)
+    disp("Podane macierze B i M nie sa tej samej wielkosci!")
     throw(exception)
 end
 
@@ -18,7 +22,7 @@ end
 r = 1:p; % wektor permutacji
 r = r';
 
-x = zeros(p, 1); % rozwiazanie
+X = zeros(p); % rozwiazanie
 for k=1:p
     % szukanie elementu najwiekszego od k-tego do p-tego
     max = abs(B(r(k), k));
@@ -35,33 +39,37 @@ for k=1:p
     r(k) = stary_r(max_pozycja);
     r(max_pozycja) = stary_r(k);
     
+    
     % eliminacja wierszy ponizej k-tego
     for i = (k+1):p
         alpha = B(r(i), k) / B(r(k), k);
-        for j = k:p % dzialanie na calym wierszu
+        % dzialania na calym wierszu
+        for j = k:p % Macierz B wystarczy, ze bedzie zmieniana od k do p
             B(r(i), j) = B(r(i), j) - B(r(k), j) * alpha;
         end
-        b(r(i)) = b(r(i)) - b(r(k)) * alpha;
+        for j = 1:p % Macierz M musi byc zmieniona cala
+            M(r(i), j) = M(r(i), j) - M(r(k), j) * alpha;
+        end
     end
 end
 
 % teraz B z odpowiednia permutacja to macierz gornotrojkatna
 
 
-% rozwiazanie U*x = b
-x(r(p)) = b(r(p))/B(r(p),p);
-for i =(p-1):-1:1
-    sum = 0;
-    for j = (i+1):p
-        sum = sum + B(r(i),j)*x(r(j));
-    end
-    x(r(i)) = (b(r(i)) - sum)/B(r(i),i);
+U = B(r(1:p),1:p);
+M_nowa = M(r(1:p),1:p);
+% ToDo rozwiazanie U*X = M_nowa
+X = U\M_nowa;
+
+
+
+
+
+
+% ToDo norm(GEPPM(B, M) - (B\M)) dla randomowych maciorek
+
 end
 
-% zamiana kolejnosci w koncowym wyniku
-x = x(r(1:p));
-
-end
 
 
 
