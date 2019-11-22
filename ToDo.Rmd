@@ -3,9 +3,9 @@ title: "ToDo"
 author: "Przemysław Chojecki"
 date: "17 11 2019"
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 
@@ -17,7 +17,7 @@ output:
 1. Wstępny algorytm podziału $A=L*U$\
 2. GEPP:\
 a) `GEPPp`, czyli $A*x=b$\
-b) `GEPPM`, czyli $A*X=M$(poza rozwiazaniem $U*X = M_nowa$)\
+b) `GEPPM`, czyli $A*X=M$(poza rozwiazaniem $U*X = M\_nowa$)\
 c) `blok3`, czyli $L*x=b$, gdzie $L$ - blokowa specyficzna\
 3. `losoweA` generujacy macierze z zadania\
 
@@ -25,10 +25,11 @@ c) `blok3`, czyli $L*x=b$, gdzie $L$ - blokowa specyficzna\
 ## Co jest do zrobienia w najblizszym czasie?
 1. Sprawdziec, czy moge w `blok3` zalozyc, ze $L11$ jest ortogonalna.\
 2. Przeczytac notatki zapisane w pliku `CroutPartition.m` i zobaczyc, czy jest tam cos wartosciowego.\
-3. $U*X = M_nowa$ w `GEPPM`.\
+3. $U*X = M\_nowa$ w `GEPPM`.\
 
 
 ## Co jest do zrobienia?
+0) Zastanowic sie jakie sa glebsze konsekwencje tego, ze $A_{11}$ jest ortogonalne.\
 1) Testy błędów względnych, wspolczynników stabilnosci oraz wspolczynnika poprawnosci.\
 2) Porownanie czasu dzialania algorytmu ze standardowym matlabowym $A \backslash b$:\
 a) sprawdzenie, jak dziala `tic toc`, czy mozna dodawac wartosci?\

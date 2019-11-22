@@ -213,7 +213,7 @@ $(document).ready(function () {
 <ol style="list-style-type: lower-alpha">
 <li><code>GEPPp</code>, czyli <span class="math inline">\(A*x=b\)</span><br />
 </li>
-<li><code>GEPPM</code>, czyli <span class="math inline">\(A*X=M\)</span>(poza rozwiazaniem <span class="math inline">\(U*X = M_nowa\)</span>)<br />
+<li><code>GEPPM</code>, czyli <span class="math inline">\(A*X=M\)</span>(poza rozwiazaniem <span class="math inline">\(U*X = M\_nowa\)</span>)<br />
 </li>
 <li><code>blok3</code>, czyli <span class="math inline">\(L*x=b\)</span>, gdzie <span class="math inline">\(L\)</span> - blokowa specyficzna<br />
 </li>
@@ -230,13 +230,15 @@ $(document).ready(function () {
 </li>
 <li>Przeczytac notatki zapisane w pliku <code>CroutPartition.m</code> i zobaczyc, czy jest tam cos wartosciowego.<br />
 </li>
-<li><span class="math inline">\(U*X = M_nowa\)</span> w <code>GEPPM</code>.<br />
+<li><span class="math inline">\(U*X = M\_nowa\)</span> w <code>GEPPM</code>.<br />
 </li>
 </ol>
 </div>
 <div id="co-jest-do-zrobienia" class="section level2">
 <h2>Co jest do zrobienia?</h2>
-<ol style="list-style-type: decimal">
+<ol start="0" style="list-style-type: decimal">
+<li>Zastanowic sie jakie sa glebsze konsekwencje tego, ze <span class="math inline">\(A_{11}\)</span> jest ortogonalne.<br />
+</li>
 <li>Testy błędów względnych, wspolczynników stabilnosci oraz wspolczynnika poprawnosci.<br />
 </li>
 <li>Porownanie czasu dzialania algorytmu ze standardowym matlabowym <span class="math inline">\(A \backslash b\)</span>:<br />
@@ -249,7 +251,7 @@ $(document).ready(function () {
 <ol start="3" style="list-style-type: decimal">
 <li>Znalezienie za pomocą generatora ciekawych macierzy(pewnie <code>hilb</code>, czy cos)<br />
 </li>
-<li>Opisanie dzialania algorytmu w <span class="math inline">\(\LaTeX\)</span>.<br />
+<li>Opisanie dzialania algorytmu w <span class="math inline">\(LaTeX\)</span>.<br />
 </li>
 <li>Wykresy:</li>
 </ol>
