@@ -1,6 +1,6 @@
 function x = GEPPp(B,b)
 %GEPPp Przyjmuje macierz B[p na p] bez dodatkowcy zalozen
-%   i kolumne b dlugosci p.
+%oraz kolumne b dlugosci p.
 %Stosujac metode GEPP wyznacza taki x, ze Bx=b
 
 [m, p] = size(B);

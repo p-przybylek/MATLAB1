@@ -1,7 +1,6 @@
 function X = GEPPM(B,M)
-%GEPPp Przyjmuje macierz B[p na p] bez dodatkowcy zalozen
-%   i macierz M[p na p].
-%Stosujac metode GEPP wyznacza macierz X, ze B*X=M
+% GEPPp Przyjmuje macierz B[p na p] bez dodatkowych zalozen oraz macierz M[p na p].
+% Stosujac metode GEPP wyznacza macierz X, taka ze B*X=M
 
 [m, p] = size(B);
 if(m ~=p)
@@ -14,15 +13,13 @@ if(n ~=p)
     throw(exception)
 end
 if(m ~=n)
-    disp("Podane macierze B i M nie sa tej samej wielkosci!")
+    disp("Podane macierze B i M sa roznych wymiarow!")
     throw(exception)
 end
-
 
 r = 1:p; % wektor permutacji
 r = r';
 
-X = zeros(p); % rozwiazanie
 for k=1:p
     % szukanie elementu najwiekszego od k-tego do p-tego
     max = abs(B(r(k), k));
@@ -55,21 +52,22 @@ end
 
 % teraz B z odpowiednia permutacja to macierz gornotrojkatna
 
+X = zeros(p); % rozwiazanie
 
-U = B(r(1:p),1:p);
-M_nowa = M(r(1:p),1:p);
-% ToDo rozwiazanie U*X = M_nowa
-X = U\M_nowa;
-
-
-
-
-
-
-% ToDo norm(GEPPM(B, M) - (B\M)) dla randomowych maciorek
+% j to wybrana kolumna dla ponizszego algorytmu
+for j = 1:p
+    % wykonujemy wyznaczanie wartosci elementow X dla danej kolumny
+    % czyli mamy Bx=m, gdzie x i m to odpowiednie kolumny X i M,
+    % gdzie B i M sa spermutowane odpowiednio
+    X(p,j) = M(r(p),j)/B(r(p),p);
+    for i = (p-1):(-1):1
+        X(i, j) = (M(r(i),j) - B(r(i), i+1:p)*X(i+1:p, j))/B(r(i),i);
+    end
+end
 
 end
 
+% ToDo norm(GEPPM(B, M) - (B\M)) dla randomowych maciorek
 
 
 
