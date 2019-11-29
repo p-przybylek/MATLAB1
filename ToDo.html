@@ -228,38 +228,24 @@ $(document).ready(function () {
 <ol style="list-style-type: decimal">
 <li>Sprawdziec, czy moge w <code>blok3</code> zalozyc, ze <span class="math inline">\(L11\)</span> jest ortogonalna.<br />
 </li>
-<li>Przeczytac notatki zapisane w pliku <code>CroutPartition.m</code> i zobaczyc, czy jest tam cos wartosciowego.<br />
-</li>
-<li><span class="math inline">\(U*X = M\_nowa\)</span> w <code>GEPPM</code>.<br />
-</li>
 </ol>
 </div>
 <div id="co-jest-do-zrobienia" class="section level2">
 <h2>Co jest do zrobienia?</h2>
-<ol start="0" style="list-style-type: decimal">
-<li>Zastanowic sie jakie sa glebsze konsekwencje tego, ze <span class="math inline">\(A_{11}\)</span> jest ortogonalne.<br />
-</li>
+<ol style="list-style-type: decimal">
 <li>Testy błędów względnych, wspolczynników stabilnosci oraz wspolczynnika poprawnosci.<br />
-</li>
-<li>Porownanie czasu dzialania algorytmu ze standardowym matlabowym <span class="math inline">\(A \backslash b\)</span>:<br />
-</li>
-</ol>
-<ol style="list-style-type: lower-alpha">
-<li>sprawdzenie, jak dziala <code>tic toc</code>, czy mozna dodawac wartosci?<br />
-</li>
-</ol>
-<ol start="3" style="list-style-type: decimal">
-<li>Znalezienie za pomocą generatora ciekawych macierzy(pewnie <code>hilb</code>, czy cos)<br />
 </li>
 <li>Opisanie dzialania algorytmu w <span class="math inline">\(LaTeX\)</span>.<br />
 </li>
-<li>Wykresy:</li>
+<li>Wykresy:<br />
+</li>
 </ol>
 <ol style="list-style-type: lower-alpha">
-<li>predkosci naszego algorytmu-porowananie z <span class="math inline">\(A \backslash b\)</span>.<br />
-<code>NOTE</code>: Byc moze <code>losoweA</code> jest wystarczajaco stabilne czasowo dla stalych <span class="math inline">\(n\)</span>, zeby kozystac z niego w petli i wykonywac obliczenia na bieraco. Trzeba to sprawdzic. Jesli czasem zajmuje mu zrobienie macierzy <span class="math inline">\(9999\)</span> <span class="math inline">\(4\)</span> sekundy, a czasem <span class="math inline">\(7\)</span>, to nie mozna w petli, ale jezeli wariancja jest nieduza, to mozna.<br />
+<li>bledy wzgledne i bezwzgledne<br />
 </li>
-<li>bledy wzgledne</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>Ewentualne zwracanie przez funkcje dodatkowych parametrow rozkladu, jezeli urzytkownik zarzyczy sobie ich policzenie.</li>
 </ol>
 </div>
 

@@ -1,0 +1,59 @@
+---
+title: "METODY NUMERYCZNE"
+subtitle: "Sprawozdanie z projektu I"
+author: "Paulina Przybyłek, Przemysław Chojecki"
+date: "29 11 2019"
+output: pdf_document
+---
+
+Temat: $1$. Rozwiązanie układu równań liniowych $Ax=b$ z wykorzystaniem blokowej metody Crouta, gdzie $A(n\times n)$ jest macierzą postaci $$A = \left(\begin{array}{ccc}A_{11}&A_{12}&0\\A_{12}^T&A_{11}&A_{23}\\0&A_{23}^T&A_{11}\end{array}\right)$$gdzie $A_{ij}(p\times p)$ i $n=3p$. Zakładamy, że $A_{11}$ jest macierzą ortogonalną. Do rozwiązania odpowiednich okładów równań liniowych zastosować metodę eliminacji Gaussa z częściowym wyborem elementu głównego(GEPP).\
+
+
+# Spis treści
+Pewnie sie bedzie generował automagicznie jak przekopiujemy to do normalnego edytora xD\
+
+
+## Opis metody
+### Rozkład $A=L*U$
+*Twierdzenie*\
+(Tu twierdzonko co nam SMOCZEK podawała)\
+Jeżeli rozkład istnieje to przedstawia się w następujący sposób:\
+(Tu LATEXowy kodzik z maciorkami $A=LU$ rozpisanymi)\
+Zatem algorytm rozkładania macierzy $A$ metodą Crouta wygląda następująco:\
+(Tu opis metody `CroutPartition`)\
+
+
+### Rozwiazywanie układu równań liniowych za pomocą rozkładu $LU$
+Po dokonaniu rozkładu i wstawieniu do równania otrzymujemy $Ax=b \iff (LU)x=b \iff L(Ux)=b$ zatem wystarczy znaleść wektor $y$ rozwiązujący układ $Ly=b$, a potem $x$ rozwiązujący układ $Ux=y$.\
+Ze względu na specyficzną strukturę macierzy $U$ oraz $L$ algorytmy rozwiązywania układów $Ly=b$ oraz $Ux=y$ przedstawiaja sie naztepujaco:\
+(Tu LATEXowe maciorkowe rozpisanie co dokladnie po kolei sie rozwiazuje)\
+
+
+## Działanie algorytmu
+(Bardzo krótkie info tylko o `TEST_Dzialania`. Przykład urzycia)\
+
+
+## Funkcje zawarte w programie
+(Krótki opis co przyjmuje i co zwraca funkcja oraz cały jej kod)\
+
+
+## Przykłady obliczeniowe
+### Przykłady dla $L_{11}=I$
+#### $A_{12} = A_{23} = I$
+#### $A_{12}, A_{23}$ - macierze hilberta
+#### $A_{12}, A_{23}$ - macierze losowe
+### Przyklady losowe
+
+
+
+## Analiza wyników
+(Wnioski. Czy warto urzywać algorytmu? Jak porównuje się do `\`? Czy dobry do obliczen równoległych?)
+
+
+
+
+
+
+
+
+
