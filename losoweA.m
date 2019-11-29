@@ -13,7 +13,7 @@ end
 p = n/3; %na pewno moge, bo sprawdzilem
 
 if(nargout > 1) % jesli urzytkownik chce miec b
-    b = randn(n);
+    b = randn(n,1);
 end
 
 A12 = randn(p);
