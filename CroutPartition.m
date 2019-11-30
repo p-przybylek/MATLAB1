@@ -1,4 +1,4 @@
-function [L,U] = CroutPartition(A,p) 
+function [L,U] = CroutPartition(A) 
 % funkcja zwraca rozklad blokowy LU macierzy A
 % przyjmuje ona macierz A i liczbe naturalna p, ktora wyznacza podzial na bloki
 
@@ -13,6 +13,8 @@ if rem(n,3) ~= 0
     return
 end
 
+p = n/3;
+
 % dzielimy A na bloki
 A12 = A(1:p,p+1:2*p);
 A23 = A(p+1:2*p,2*p + 1: 3*p);
@@ -21,7 +23,7 @@ A23 = A(p+1:2*p,2*p + 1: 3*p);
 	L11 = A(1:p, 1:p); % Wiemy, ze cond(A11) == 1, bo jest to macierz ortogonalna
 	U12 = L11' * A12; % L11*U12 = A12, wiec U12= L11\A12, ale L11 - ortogonalna, wiec U12 = L11'*A12
 	L21 = A12';
-	L22 = (L11) - (L21*U12); 
+	L22 = (L11) - (L21*U12);
 	U23 = GEPPM(L22,A23); % L22*U23 = A23, wiec U23= L22\A23
 	L32 = A23';
 	L33 = (L11) - (L32*U23);
@@ -42,6 +44,7 @@ end
 % sprawdzic, czy macierz A jest dobrze uwarunkowana
 % bleda rozkladu: norm(A - L*U)/norm(A)
 % moze sie zdarzyc, ze wyjsciowa A jest dobrze uwarunkowana, ale L lub U sa zle
-% policzyc cond wszystkich blokow np. cond(L33), cond(L22)
+% policzyc cond wszystkich blokow np. cond(L33), cond(L22); wszedzie, gdzie
+%   rozwiazujemy uklad rownan GEPP
 % policzyc bledy wzgledne dla roznych wektorow b (Lab7)
 % porownywac z A\b

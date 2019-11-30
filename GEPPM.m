@@ -67,7 +67,6 @@ end
 
 end
 
-% ToDo norm(GEPPM(B, M) - (B\M)) dla randomowych maciorek
 
 
 
