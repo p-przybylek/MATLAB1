@@ -1,26 +1,28 @@
 ---
 title: "METODY NUMERYCZNE"
-subtitle: "Sprawozdanie z projektu I"
 author: "Paulina Przybyłek, Przemysław Chojecki"
 date: "29 11 2019"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
+subtitle: Sprawozdanie z projektu I
 ---
 
-Temat: $1$. Rozwiązanie układu równań liniowych $Ax=b$ z wykorzystaniem blokowej metody Crouta, gdzie $A(n\times n)$ jest macierzą postaci $$A = \left(\begin{array}{ccc}A_{11}&A_{12}&0\\A_{12}^T&A_{11}&A_{23}\\0&A_{23}^T&A_{11}\end{array}\right)$$gdzie $A_{ij}(p\times p)$ i $n=3p$. Zakładamy, że $A_{11}$ jest macierzą ortogonalną. Do rozwiązania odpowiednich okładów równań liniowych zastosować metodę eliminacji Gaussa z częściowym wyborem elementu głównego(GEPP).\
+Temat: $1$. Rozwiązanie układu równań liniowych $Ax=b$ z wykorzystaniem blokowej metody Crouta, gdzie $A(n\times n)$ jest macierzą postaci $$A = \left(\begin{array}{ccc}A_{11}&A_{12}&0\\A_{12}^T&A_{11}&A_{23}\\0&A_{23}^T&A_{11}\end{array}\right),$$gdzie $A_{ij}(p\times p)$ i $n=3p$. Zakładamy, że $A_{11}$ jest macierzą ortogonalną. Do rozwiązania odpowiednich okładów równań liniowych zastosować metodę eliminacji Gaussa z częściowym wyborem elementu głównego(GEPP).\
 
 
 # Spis treści
-Pewnie sie bedzie generował automagicznie jak przekopiujemy to do normalnego edytora xD\
+(Pewnie sie bedzie generował automagicznie jak przekopiujemy to do normalnego edytora xD)\
 
 
 ## Opis metody
 ### Rozkład $A=L*U$
 *Twierdzenie*\
 (Tu twierdzonko co nam SMOCZEK podawała)\
-Jeżeli rozkład istnieje to przedstawia się w następujący sposób:\
+Jeżeli taki blokowy rozkład istnieje to przedstawia się w następujący sposób:\
 (Tu LATEXowy kodzik z maciorkami $A=LU$ rozpisanymi)\
-Zatem algorytm rozkładania macierzy $A$ metodą Crouta wygląda następująco:\
-(Tu opis metody `CroutPartition`)\
+Zatem algorytm blokowego rozkładania macierzy $A$ metodą Crouta wygląda następująco:\
+(Tu matematyczny opis metody `CroutPartition`)\
 
 
 ### Rozwiazywanie układu równań liniowych za pomocą rozkładu $LU$
@@ -30,11 +32,44 @@ Ze względu na specyficzną strukturę macierzy $U$ oraz $L$ algorytmy rozwiązy
 
 
 ## Działanie algorytmu
-(Bardzo krótkie info tylko o `TEST_Dzialania`. Przykład urzycia)\
+(Bardzo krótkie info tylko o `TEST_Dzialania`(Trzeba zmienic nazwe tej funkcji, ale niemam pomysłu). Przykład urzycia)\
 
 
 ## Funkcje zawarte w programie
+### [L,U] = `CroutPartition`(A)
 (Krótki opis co przyjmuje i co zwraca funkcja oraz cały jej kod)\
+
+
+### x = `blok3L`(L, b)
+Funkcja rozwiazuje uklad rownan $Lx=b$, gdzie:
+$$L = \left(\begin{array}{ccc}A_{11}&0&0\\A_{12}^T&L_{22}&0\\0&L_{32}&L_{33}\end{array}\right),\ A_{i,j}(p\times p),\ A_{11}-\text{ortogonalna},\ L_{i,j}(p\times p),\ b(3p\times 1)$$
+
+
+
+
+### x = `blok3U`(U, b)
+Funkcja rozwiazuje układ równań $Ux=b$, gdzie:
+$$U = \left(\begin{array}{ccc}I&U_{12}&0\\0&I&U_{23}\\0&0&I\end{array}\right),\ U_{i,j}(p\times p),\ I(p\times p)\text{-jednostkowa},\ b(3p\times 1)$$
+
+
+
+### x = `GEPPp`(B,b)
+Funkcja rozwiazuje metodą eliminacji Gaussa z częściowym wyborem układ równań $Bx=b$, gdzie $B(p\times p), b(p\times 1)$
+
+
+
+
+### X = `GEPPM`(B,M)
+Funkcja rozwiazuje metodą eliminacji Gaussa z częściowym wyborem równanie macierzowe $BX=M$, gdzie $B(p\times p), M(p\times p)$
+
+
+### [A, b] = `losoweA`(n)
+Funkcja zwraca losową macierz $A$ spełniającą warunki zadania. Losowanie odbywa się za pomogą funkcji `randn`. Jeśli urztkownik sobie tego rzyczy, zwraca równierz losowy wektor $b$.
+
+
+### x = `TEST_Dzialania`(A,b)
+Funkcja przyjmuje macierz $A$ zgodną z warunkami zadania oraz odpowiadający jej wielkości wektor $b$ i znajduje wektor $x$ taki, że $Ax=b$.
+
 
 
 ## Przykłady obliczeniowe
