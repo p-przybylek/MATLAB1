@@ -1,5 +1,5 @@
 function x = blok3U(U, b)
-%blok3 Rozwiazuje uklad rownan U*x=b, gdzie:
+% blok3 Rozwiazuje uklad rownan U*x=b, gdzie:
 %   U to blokowo macierz 3 na 3 gornotrojkatna z wartoscia L31 = 0,
 %   b to wektor tej samej wielkosci, co U.
 
@@ -22,14 +22,10 @@ if(m ~=n)
     throw(exception)
 end
 
-% ToDo sprawdzenie, czy zera sa w odpowiednich miejscach
-
-
 x = zeros(n, 1);
 x((2*p+1):(3*p)) = b((2*p+1):(3*p));
 x((p+1):(2*p)) = b((p+1):(2*p)) - U((p+1):(2*p), (2*p+1):(3*p)) * x((2*p+1):(3*p));
 x(1:p) = b(1:p) - U(1:p, (p+1):(2*p)) * x((p+1):(2*p));
-
 
 end
 

@@ -1,7 +1,7 @@
-function [L,U] = CroutPartition(A) 
+function [L,U, blokcond] = CroutPartition(A) 
 % funkcja zwraca rozklad blokowy LU macierzy A
 % przyjmuje ona macierz A i liczbe naturalna p, ktora wyznacza podzial na bloki
-
+% mozliwe jest zwrocenie listy skladajacej sie z uwarunkowan L22, U23 i L33
 [m,n] = size(A);
 if m ~= n 
     disp('Podana macierz A nie jest kwadratowa!')
@@ -28,6 +28,13 @@ A23 = A(p+1:2*p,2*p + 1: 3*p);
 	L32 = A23';
 	L33 = (L11) - (L32*U23);
 
+if(nargout == 3) % tylko gdy uzytkownik chce
+    condL22 = cond(L22);
+    condU23 = cond(U23);
+    condL33 = cond(L33);
+    blokcond = [condL22, condU23, condL33];
+end
+
 % teraz umieszczamy bloki na odpowiednich miejscach tworzac wyjsciowe macierze   
 L = [     L11, zeros(p), zeros(p);
           L21,      L22, zeros(p);
@@ -37,14 +44,3 @@ U = [  eye(p),     U12, zeros(p);
      zeros(p), zeros(p),  eye(p)];
 
 end
-
-% ToDo
-% beda problemy dla A11 - macierz hilberta
-% zwykla metoda crouta nie jest wykonalna, ale blokowa jest
-% sprawdzic, czy macierz A jest dobrze uwarunkowana
-% bleda rozkladu: norm(A - L*U)/norm(A)
-% moze sie zdarzyc, ze wyjsciowa A jest dobrze uwarunkowana, ale L lub U sa zle
-% policzyc cond wszystkich blokow np. cond(L33), cond(L22); wszedzie, gdzie
-%   rozwiazujemy uklad rownan GEPP
-% policzyc bledy wzgledne dla roznych wektorow b (Lab7)
-% porownywac z A\b
