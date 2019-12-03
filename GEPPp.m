@@ -1,7 +1,6 @@
 function x = GEPPp(B,b)
-%GEPPp Przyjmuje macierz B[p na p] bez dodatkowcy zalozen
-%oraz kolumne b dlugosci p.
-%Stosujac metode GEPP wyznacza taki x, ze Bx=b
+% GEPPp Przyjmuje macierz B[p na p] bez dodatkowcy zalozen oraz kolumne b dlugosci p.
+% Stosujac metode GEPP wyznacza taki x, ze Bx=b
 
 [m, p] = size(B);
 if(m ~=p)
@@ -46,7 +45,6 @@ for k=1:p
 end
 
 % teraz B z odpowiednia permutacja to macierz gornotrojkatna
-
 
 % rozwiazanie U*x = b
 x(r(p)) = b(r(p))/B(r(p),p);

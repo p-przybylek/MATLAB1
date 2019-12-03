@@ -1,5 +1,5 @@
 function X = GEPPM(B,M)
-%GEPPM Przyjmuje macierz B[p na p] bez dodatkowych zalozen oraz macierz M[p na p].
+% GEPPM Przyjmuje macierz B[p na p] bez dodatkowych zalozen oraz macierz M[p na p].
 % Stosujac metode GEPP wyznacza macierz X, taka ze B*X=M
 
 [m, p] = size(B);
